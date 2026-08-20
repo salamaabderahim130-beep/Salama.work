@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Salama Web | تصميم مواقع الويب</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Tahoma,sans-serif;
+    background:#f5f7fb;
+    color:#172033;
+    line-height:1.8;
+}
+
+header{
+    min-height:100vh;
+    padding:25px 7%;
+    background:
+    radial-gradient(circle at top left,#38bdf8 0,transparent 30%),
+    linear-gradient(135deg,#07152d,#0b2d5c);
+    color:white;
+    display:flex;
+    flex-direction:column;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:1200px;
+    width:100%;
+    margin:auto;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#38bdf8;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-right:20px;
+}
+
+.hero{
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+    padding:60px 0;
+}
+
+.hero .icon{
+    font-size:80px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:48px;
+    line-height:1.3;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#38bdf8;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    font-size:20px;
+    color:#dbeafe;
+}
+
+.buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.primary{
+    background:#25D366;
+    color:white;
+}
+
+.secondary{
+    border:2px solid #38bdf8;
+    color:white;
+}
+
+section{
+    padding:75px 7%;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.title h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.title p{
+    color:#64748b;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.service{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 7px 25px #00000012;
+    transition:.25s;
+}
+
+.service:hover{
+    transform:translateY(-7px);
+}
+
+.service-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.service h3{
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.service p{
+    color:#64748b;
+}
+
+.price{
+    margin-top:20px;
+    font-weight:bold;
+    color:#0878e8;
+}
+
+.about{
+    background:#eaf3ff;
+}
+
+.about-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+}
+
+.about-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 7px 25px #00000012;
+}
+
+.about-card h3{
+    font-size:27px;
+    margin-bottom:15px;
+}
+
+.skills{
+    margin-top:20px;
+}
+
+.skill{
+    margin:12px 0;
+}
+
+.skill-top{
+    display:flex;
+    justify-content:space-between;
+}
+
+.bar{
+    height:9px;
+    background:#e2e8f0;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:#0878e8;
+    border-radius:10px;
+}
+
+.html{
+    width:90%;
+}
+
+.css{
+    width:85%;
+}
+
+.js{
+    width:65%;
+}
+
+.portfolio{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.project{
+    min-height:220px;
+    padding:30px;
+    border-radius:22px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    background:linear-gradient(135deg,#0878e8,#123caa);
+    box-shadow:0 8px 25px #0002;
+}
+
+.project:nth-child(2){
+    background:linear-gradient(135deg,#16a34a,#075e32);
+}
+
+.project h3{
+    font-size:25px;
+}
+
+.project p{
+    opacity:.9;
+}
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.step{
+    text-align:center;
+    padding:25px 15px;
+    background:white;
+    border-radius:18px;
+    box-shadow:0 5px 20px #00000010;
+}
+
+.step-number{
+    width:50px;
+    height:50px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#0878e8;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.contact{
+    background:linear-gradient(135deg,#07152d,#0b2d5c);
+    color:white;
+    text-align:center;
+}
+
+.contact p{
+    color:#dbeafe;
+    font-size:18px;
+}
+
+.contact-button{
+    display:inline-block;
+    margin-top:25px;
+    padding:16px 35px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    border-radius:13px;
+    font-weight:bold;
+    font-size:18px;
+}
+
+footer{
+    padding:25px;
+    text-align:center;
+    background:#050d1b;
+    color:#94a3b8;
+}
+
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    width:58px;
+    height:58px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#25D366;
+    color:white;
+    border-radius:50%;
+    text-decoration:none;
+    font-size:28px;
+    box-shadow:0 5px 20px #0004;
+    z-index:100;
+}
+
+@media(max-width:800px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav a{
+        margin:0 5px;
+        font-size:14px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .about-box{
+        grid-template-columns:1fr;
+    }
+
+    .portfolio{
+        grid-template-columns:1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:450px){
+
+    header{
+        padding:20px;
+    }
+
+    section{
+        padding:55px 20px;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     الصفحة الرئيسية
+========================= -->
+
+<header id="home">
+
+<nav>
+
+<div class="logo">
+Salama <span>Web</span>
+</div>
+
+<div>
+<a href="#services">الخدمات</a>
+<a href="#portfolio">الأعمال</a>
+<a href="#contact">تواصل</a>
+</div>
+
+</nav>
+
+
+<div class="hero">
+
+<div class="icon">
+💻
+</div>
+
+<h1>
+نصنع لك <span>موقعك الخاص</span>
+بشكل احترافي
+</h1>
+
+<p>
+هل لديك مشروع أو فكرة وتريد تحويلها إلى موقع على الإنترنت؟
+نساعدك على إنشاء صفحات ويب بسيطة، جميلة ومتوافقة مع الهاتف.
+</p>
+
+<div class="buttons">
+
+<a
+class="btn primary"
+href="https://wa.me/212770737040"
+target="_blank">
+
+📱 تواصل عبر واتساب
+
+</a>
+
+<a
+class="btn secondary"
+href="#services">
+
+🚀 اكتشف خدماتنا
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================
+     الخدمات
+========================= -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="title">
+
+<h2>🛠️ ماذا نقدم؟</h2>
+
+<p>
+حلول بسيطة لأصحاب المشاريع والأفكار
+</p>
+
+</div>
+
+
+<div class="services">
+
+
+<div class="service">
+
+<div class="service-icon">
+🌐
+</div>
+
+<h3>
+موقع تعريفي
+</h3>
+
+<p>
+صفحة جميلة تعرض معلومات مشروعك،
+خدماتك، وسائل التواصل الخاصة بك
+وكل ما تريد أن يعرفه الزوار.
+</p>
+
+<div class="price">
+💰 السعر حسب المشروع
+</div>
+
+</div>
+
+
+
+<div class="service">
+
+<div class="service-icon">
+🍔
+</div>
+
+<h3>
+موقع لمطعم أو محل
+</h3>
+
+<p>
+اعرض منتجاتك وخدماتك ومعلومات التواصل
+بطريقة سهلة يمكن للعملاء تصفحها من الهاتف.
+</p>
+
+<div class="price">
+💰 السعر حسب المشروع
+</div>
+
+</div>
+
+
+
+<div class="service">
+
+<div class="service-icon">
+🎨
+</div>
+
+<h3>
+تصميم صفحة خاصة
+</h3>
+
+<p>
+هل لديك فكرة معينة؟
+يمكننا إنشاء صفحة مخصصة حسب احتياجاتك
+وتصميمها بالشكل الذي تريده.
+</p>
+
+<div class="price">
+💰 السعر حسب المشروع
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     من نحن
+========================= -->
+
+<section class="about">
+
+<div class="container">
+
+<div class="title">
+
+<h2>👨‍💻 من نحن؟</h2>
+
+<p>
+نبني المواقع خطوة بخطوة
+</p>
+
+</div>
+
+
+<div class="about-box">
+
+
+<div class="about-card">
+
+<h3>
+فكرة صغيرة يمكن أن تصبح مشروعًا 🚀
+</h3>
+
+<p>
+Salama Web هو مشروع يهتم بتصميم صفحات الويب
+وتحويل الأفكار البسيطة إلى مواقع يمكن للناس
+الوصول إليها من الهاتف أو الحاسوب.
+</p>
+
+<br>
+
+<p>
+نركز على التصميم البسيط والسرعة وسهولة الاستخدام،
+خصوصًا على الهواتف.
+</p>
+
+</div>
+
+
+
+<div class="about-card">
+
+<h3>
+💻 مهاراتنا
+</h3>
+
+<div class="skills">
+
+
+<div class="skill">
+
+<div class="skill-top">
+<span>HTML</span>
+<span>90%</span>
+</div>
+
+<div class="bar">
+<div class="fill html"></div>
+</div>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-top">
+<span>CSS</span>
+<span>85%</span>
+</div>
+
+<div class="bar">
+<div class="fill css"></div>
+</div>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-top">
+<span>JavaScript</span>
+<span>65%</span>
+</div>
+
+<div class="bar">
+<div class="fill js"></div>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     الأعمال
+========================= -->
+
+<section id="portfolio">
+
+<div class="container">
+
+<div class="title">
+
+<h2>🏆 أعمالنا</h2>
+
+<p>
+بعض المشاريع التي يمكننا تنفيذها
+</p>
+
+</div>
+
+
+<div class="portfolio">
+
+
+<div class="project">
+
+<h3>
+📚 موقع تعليمي
+</h3>
+
+<p>
+موقع للدروس والاختبارات
+والتعلم عبر الإنترنت.
+</p>
+
+</div>
+
+
+<div class="project">
+
+<h3>
+🍕 موقع مطعم
+</h3>
+
+<p>
+صفحة تعرض قائمة الطعام
+ومعلومات المطعم وطرق التواصل.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     كيف نعمل؟
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+⚡ كيف نعمل؟
+</h2>
+
+<p>
+أربع خطوات بسيطة
+</p>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="step-number">
+1
+</div>
+
+<h3>
+💬 تحدث معنا
+</h3>
+
+<p>
+أخبرنا عن فكرتك وما تحتاجه.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-number">
+2
+</div>
+
+<h3>
+📝 نحدد المطلوب
+</h3>
+
+<p>
+نتفق على شكل الموقع ومحتواه.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-number">
+3
+</div>
+
+<h3>
+💻 نبدأ العمل
+</h3>
+
+<p>
+نقوم ببناء الصفحة وتصميمها.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-number">
+4
+</div>
+
+<h3>
+🚀 إطلاق الموقع
+</h3>
+
+<p>
+يصبح موقعك جاهزًا للزوار.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     التواصل
+========================= -->
+
+<section
+class="contact"
+id="contact">
+
+<div class="container">
+
+<h2>
+📱 هل لديك فكرة؟
+</h2>
+
+<p>
+لا تتردد في التواصل معنا ومناقشة مشروعك.
+</p>
+
+<a
+class="contact-button"
+href="https://wa.me/212770737040"
+target="_blank">
+
+💬 تحدث معنا عبر واتساب
+
+</a>
+
+<p style="margin-top:15px;">
+0770737040
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- زر واتساب العائم -->
+
+<a
+class="whatsapp"
+href="https://wa.me/212770737040"
+target="_blank"
+aria-label="واتساب">
+
+💬
+
+</a>
+
+
+
+<footer>
+
+Salama Web © 2026
+<br>
+نحوّل الأفكار إلى مواقع 🌐
+
+</footer>
+
+
+</body>
+  </html>
